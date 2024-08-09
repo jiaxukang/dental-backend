@@ -798,13 +798,14 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String;
-    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    icon: Attribute.Media<'images', true>;
     color: Attribute.String;
     products: Attribute.Relation<
       'api::category.category',
@@ -887,7 +888,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     sellingPrice: Attribute.Decimal;
     itemQuantityType: Attribute.String;
     slug: Attribute.UID & Attribute.Required;
-    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    images: Attribute.Media<'images', true>;
     categories: Attribute.Relation<
       'api::product.product',
       'manyToMany',
@@ -922,13 +923,14 @@ export interface ApiSliderSlider extends Schema.CollectionType {
     singularName: 'slider';
     pluralName: 'sliders';
     displayName: 'Slider';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    image: Attribute.Media<'images', true>;
     type: Attribute.Enumeration<['home', 'banner']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

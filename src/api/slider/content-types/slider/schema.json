@@ -4,7 +4,8 @@
   "info": {
     "singularName": "slider",
     "pluralName": "sliders",
-    "displayName": "Slider"
+    "displayName": "Slider",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,14 +16,12 @@
       "type": "string"
     },
     "image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
       "type": "media",
-      "multiple": true
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "type": {
       "type": "enumeration",
