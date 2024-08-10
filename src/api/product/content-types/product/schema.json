@@ -52,13 +52,7 @@
       "mappedBy": "products"
     },
     "size": {
-      "type": "enumeration",
-      "enum": [
-        "small",
-        "medium",
-        "big"
-      ],
-      "default": "small"
+      "type": "string"
     }
   }
 }

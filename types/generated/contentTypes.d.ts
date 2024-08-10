@@ -899,8 +899,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::user-cart.user-cart'
     >;
-    size: Attribute.Enumeration<['small', 'medium', 'big']> &
-      Attribute.DefaultTo<'small'>;
+    size: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -977,6 +976,7 @@ export interface ApiUserCartUserCart extends Schema.CollectionType {
       'plugin::users-permissions.user'
     >;
     user_id: Attribute.Integer;
+    size: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
