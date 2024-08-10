@@ -899,7 +899,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::user-cart.user-cart'
     >;
-    size: Attribute.String;
+    size: Attribute.String & Attribute.DefaultTo<'small'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -52,7 +52,8 @@
       "mappedBy": "products"
     },
     "size": {
-      "type": "string"
+      "type": "string",
+      "default": "small"
     }
   }
 }
