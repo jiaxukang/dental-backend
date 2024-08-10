@@ -14,6 +14,7 @@ export interface OrderedItemOrderedItem extends Schema.Component {
       'oneToOne',
       'api::product.product'
     >;
+    size: Attribute.String;
   };
 }
 
