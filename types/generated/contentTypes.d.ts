@@ -812,6 +812,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'manyToMany',
       'api::product.product'
     >;
+    modules: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::module.module'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -823,6 +828,43 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiModuleModule extends Schema.CollectionType {
+  collectionName: 'modules';
+  info: {
+    singularName: 'module';
+    pluralName: 'modules';
+    displayName: 'Module';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    picture: Attribute.Media<'images', true>;
+    categories: Attribute.Relation<
+      'api::module.module',
+      'manyToMany',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::module.module',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::module.module',
       'oneToOne',
       'admin::user'
     > &
@@ -1014,6 +1056,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
+      'api::module.module': ApiModuleModule;
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
       'api::slider.slider': ApiSliderSlider;
